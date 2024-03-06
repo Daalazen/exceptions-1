@@ -32,11 +32,11 @@ public class Program {
 			System.out.print("Check-out date (DD/MM/YYYY): ");
 			checkOut = date.getdateFormat().parse(sc.next());
 			
-			if(!checkOut.after(checkIn)) {
-				System.out.println("Error in reservation! Check-out date must be after check-in date");
+			String error = reservation.updateDate(checkIn, checkOut);
+			if(error != null) {
+				System.out.println(error);
 			}else {
-			reservation.updateDate(checkIn, checkOut);
-			System.out.println("UPDATED RESERVATION: "+ reservation);
+				System.out.println(reservation);
 			}
 		}
 		
